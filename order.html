@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<meta charset="UTF-8">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Order Now</title>
@@ -16,17 +18,17 @@
 Place Your Order
 </h1>
 
-<form class="feature-card" style="max-width:700px;margin:auto;">
+<form id="orderForm" class="feature-card" style="max-width:700px;margin:auto;">
 
-<input type="text" placeholder="Full Name" required>
-
-<br><br>
-
-<input type="tel" placeholder="Phone Number" required>
+<input type="text" id="customer_name" placeholder="Full Name" required>
 
 <br><br>
 
-<select>
+<input type="tel" id="phone" placeholder="Phone Number" required>
+
+<br><br>
+
+<select id="item">
 <option>Breakfast</option>
 <option>Burger</option>
 <option>Pizza</option>
@@ -37,21 +39,81 @@ Place Your Order
 
 <br><br>
 
-<input type="number" placeholder="Quantity">
+<input type="number" id="quantity" placeholder="Quantity" required>
 
 <br><br>
 
-<input type="text" placeholder="M-Pesa Transaction Code">
+<input type="text" id="mpesa_code" placeholder="M-Pesa Transaction Code">
 
 <br><br>
 
-<button class="btn btn-primary">
+<button type="submit" class="btn btn-primary">
 Submit Order
 </button>
 
 </form>
 
-</section>
+<p id="message"></p>
 
+</section>
+<script>
+const supabaseUrl = "https://hleopwmajetpaixqwidg.supabase.co";
+
+const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhsZW9wd21hamV0cGFpeHF3aWRnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIyMzEyMTAsImV4cCI6MjA5NzgwNzIxMH0.4e2OddUKXfHOJ0CV2nBps84NNmKqaC5ZKUL9o2abg7A";
+
+const supabase = window.supabase.createClient(
+    supabaseUrl,
+    supabaseKey
+);
+
+document.getElementById("orderForm")
+.addEventListener("submit", async (e) => {
+
+e.preventDefault();
+
+const customer_name =
+document.getElementById("customer_name").value;
+
+const phone =
+document.getElementById("phone").value;
+
+const item =
+document.getElementById("item").value;
+
+const quantity =
+document.getElementById("quantity").value;
+
+const mpesa_code =
+document.getElementById("mpesa_code").value;
+
+const { error } = await supabase
+.from("orders")
+.insert([
+{
+customer_name,
+phone,
+item,
+quantity,
+mpesa_code
+}
+]);
+
+const message =
+document.getElementById("message");
+
+if(error){
+message.innerText =
+"Error saving order.";
+console.error(error);
+}
+else{
+message.innerText =
+"Order submitted successfully!";
+document.getElementById("orderForm").reset();
+}
+
+});
+</script>
+  
 </body>
 </html>
