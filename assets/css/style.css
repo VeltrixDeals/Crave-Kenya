@@ -324,6 +324,25 @@ z-index:999;
 }
 
 /* =========================
+   MENU GALLERY
+========================= */
+
+.menu-gallery{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:8px;
+padding:10px;
+}
+
+.menu-gallery img{
+width:100%;
+height:140px;
+object-fit:cover;
+border-radius:12px;
+display:block;
+}
+
+/* =========================
    MOBILE
 ========================= */
 
@@ -374,8 +393,8 @@ text-align:center;
 height:50px;
 }
 
-.menu-card img{
-height:200px;
+.menu-gallery img{
+height:110px;
 }
 
-  }
+}
