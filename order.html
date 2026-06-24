@@ -1,117 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<meta charset="UTF-8">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Order Now</title>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<title>Crave Kenya | Order Now</title>
 
-<link rel="stylesheet" href="assets/css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body bgcolor="#FDFDFD" text="#222222">
 
-<section style="padding-top:150px">
+<header>
+<center>
+    <br>
+    <img src="assets/images/crave-logo.png" alt="Crave Kenya Logo" width="140">
+    <br><br>
+    <nav>
+        <a href="index.html" style="text-decoration:none;"><font face="Poppins" size="2" color="#555555">HOME</font></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="menu.html" style="text-decoration:none;"><font face="Poppins" size="2" color="#555555">MENU</font></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="order.html" style="text-decoration:none;"><font face="Poppins" size="2" color="#111111"><strong>ORDER ONLINE</strong></font></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="reservations.html" style="text-decoration:none;"><font face="Poppins" size="2" color="#555555">RESERVATIONS</font></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="contact.html" style="text-decoration:none;"><font face="Poppins" size="2" color="#555555">CONTACT</font></a>
+    </nav>
+</center>
+</header>
 
-<h1 class="section-title">
-Place Your Order
-</h1>
-
-<form id="orderForm" class="feature-card" style="max-width:700px;margin:auto;">
-
-<input type="text" id="customer_name" placeholder="Full Name" required>
-
+<br>
+<hr size="1" color="#E0E0E0" width="85%">
 <br><br>
 
-<input type="tel" id="phone" placeholder="Phone Number" required>
+<section>
+<center>
+    <h1>
+        <font face="Playfair Display" size="7" color="#111111">Place Your Order</font>
+        <br>
+        <font face="Poppins" size="2" color="#888888"><i>Select your items and provide payment details to complete your order</i></font>
+    </h1>
+    
+    <br><br>
 
-<br><br>
+    <table border="0" cellpadding="40" cellspacing="0" bgcolor="#F9F9F9" width="550" style="border: 1px solid #E0E0E0; max-width: 100%;">
+        <tr>
+            <td>
+                <form id="orderForm">
+                    
+                    <p><font face="Poppins" size="2" color="#444444"><strong>Full Name</strong></font></p>
+                    <input type="text" id="customer_name" placeholder="e.g. Jane Doe" required style="width:100%; padding:10px; font-family:'Poppins',sans-serif; border:1px solid #CCCCCC; box-sizing:border-box;">
+                    
+                    <br><br>
+                    
+                    <p><font face="Poppins" size="2" color="#444444"><strong>Phone Number</strong></font></p>
+                    <input type="tel" id="phone" placeholder="e.g. +254 700 000000" required style="width:100%; padding:10px; font-family:'Poppins',sans-serif; border:1px solid #CCCCCC; box-sizing:border-box;">
+                    
+                    <br><br>
+                    
+                    <table border="0" width="100%" cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td width="58%">
+                                <p><font face="Poppins" size="2" color="#444444"><strong>Select Item</strong></font></p>
+                                <select id="item" style="width:100%; padding:10px; font-family:'Poppins',sans-serif; border:1px solid #CCCCCC; box-sizing:border-box; background-color:#FFFFFF;">
+                                    <option>Breakfast</option>
+                                    <option>Burger</option>
+                                    <option>Pizza</option>
+                                    <option>Pasta</option>
+                                    <option>Dessert</option>
+                                    <option>Drinks</option>
+                                </select>
+                            </td>
+                            <td width="4%"></td>
+                            <td width="38%">
+                                <p><font face="Poppins" size="2" color="#444444"><strong>Quantity</strong></font></p>
+                                <input type="number" id="quantity" placeholder="1" min="1" required style="width:100%; padding:10px; font-family:'Poppins',sans-serif; border:1px solid #CCCCCC; box-sizing:border-box;">
+                            </td>
+                        </tr>
+                    </table>
+                    
+                    <br><br>
+                    
+                    <p><font face="Poppins" size="2" color="#444444"><strong>M-Pesa Transaction Code</strong></font></p>
+                    <input type="text" id="mpesa_code" placeholder="e.g. QXRT789XYZ" style="width:100%; padding:10px; font-family:'Poppins',sans-serif; border:1px solid #CCCCCC; box-sizing:border-box;">
+                    
+                    <br><br><br>
+                    
+                    <center>
+                        <button type="submit" style="background-color:#111111; color:#FFFFFF; border:none; padding:12px 35px; font-family:'Poppins',sans-serif; font-size:12px; letter-spacing:2px; cursor:pointer; width:100%;">
+                            <strong>SUBMIT ORDER</strong>
+                        </button>
+                    </center>
 
-<select id="item">
-<option>Breakfast</option>
-<option>Burger</option>
-<option>Pizza</option>
-<option>Pasta</option>
-<option>Dessert</option>
-<option>Drinks</option>
-</select>
+                </form>
+            </td>
+        </tr>
+    </table>
 
-<br><br>
+    <br><br>
+    <table border="0" width="550" style="max-width: 100%;">
+        <tr>
+            <td align="center">
+                <p id="message"></p>
+            </td>
+        </tr>
+    </table>
 
-<input type="number" id="quantity" placeholder="Quantity" required>
-
-<br><br>
-
-<input type="text" id="mpesa_code" placeholder="M-Pesa Transaction Code">
-
-<br><br>
-
-<button type="submit" class="btn btn-primary">
-Submit Order
-</button>
-
-</form>
-
-<p id="message"></p>
-
+</center>
 </section>
+
+<br><br>
+<hr size="1" color="#E0E0E0" width="85%">
+<br><br>
+
+<footer>
+<center>
+    <img src="assets/images/crave-logo.png" alt="Crave Logo" width="90">
+    <br><br>
+    <p><font face="Poppins" size="1" color="#999999">© 2026 Crave Kenya. All Rights Reserved.</font></p>
+    <br>
+</center>
+</footer>
+
 <script>
 const supabaseUrl = "https://hleopwmajetpaixqwidg.supabase.co";
-
 const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhsZW9wd21hamV0cGFpeHF3aWRnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIyMzEyMTAsImV4cCI6MjA5NzgwNzIxMH0.4e2OddUKXfHOJ0CV2nBps84NNmKqaC5ZKUL9o2abg7A";
 
-const supabase = window.supabase.createClient(
-    supabaseUrl,
-    supabaseKey
-);
+const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
 
-document.getElementById("orderForm")
-.addEventListener("submit", async (e) => {
+document.getElementById("orderForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-e.preventDefault();
+    const customer_name = document.getElementById("customer_name").value;
+    const phone = document.getElementById("phone").value;
+    const item = document.getElementById("item").value;
+    const quantity = document.getElementById("quantity").value;
+    const mpesa_code = document.getElementById("mpesa_code").value;
 
-const customer_name =
-document.getElementById("customer_name").value;
+    const { error } = await supabase
+        .from("orders")
+        .insert([{
+            customer_name,
+            phone,
+            item,
+            quantity,
+            mpesa_code
+        }]);
 
-const phone =
-document.getElementById("phone").value;
+    const message = document.getElementById("message");
 
-const item =
-document.getElementById("item").value;
-
-const quantity =
-document.getElementById("quantity").value;
-
-const mpesa_code =
-document.getElementById("mpesa_code").value;
-
-const { error } = await supabase
-.from("orders")
-.insert([
-{
-customer_name,
-phone,
-item,
-quantity,
-mpesa_code
-}
-]);
-
-const message =
-document.getElementById("message");
-
-if(error){
-message.innerText =
-"Error saving order.";
-console.error(error);
-}
-else{
-message.innerText =
-"Order submitted successfully!";
-document.getElementById("orderForm").reset();
-}
-
+    if(error){
+        message.innerHTML = `<font face="Poppins" size="3" color="#D32F2F"><strong>Error saving order.</strong></font>`;
+        console.error(error);
+    } else {
+        message.innerHTML = `<font face="Poppins" size="3" color="#2E7D32">✨ <strong>Order submitted successfully!</strong></font>`;
+        document.getElementById("orderForm").reset();
+    }
 });
 </script>
   
