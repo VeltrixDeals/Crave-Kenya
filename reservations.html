@@ -4,81 +4,50 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<title>Crave Kenya | Reservations</title>
+<title>Reservations</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 
 <body bgcolor="#FDFDFD" text="#222222">
 
-<header>
-<center>
-    <br>
-    <img src="assets/images/crave-logo.png" alt="Crave Kenya Logo" width="140">
-    <br><br>
-    <nav>
-        <a href="index.html" style="text-decoration:none;"><font face="Poppins" size="2" color="#555555">HOME</font></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <a href="menu.html" style="text-decoration:none;"><font face="Poppins" size="2" color="#555555">MENU</font></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <a href="order.html" style="text-decoration:none;"><font face="Poppins" size="2" color="#555555">ORDER ONLINE</font></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <a href="reservations.html" style="text-decoration:none;"><font face="Poppins" size="2" color="#111111"><strong>RESERVATIONS</strong></font></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <a href="contact.html" style="text-decoration:none;"><font face="Poppins" size="2" color="#555555">CONTACT</font></a>
-    </nav>
-</center>
-</header>
-
-<br>
-<hr size="1" color="#E0E0E0" width="85%">
-<br><br>
-
 <section>
 <center>
+    <br><br><br>
     <h1>
         <font face="Playfair Display" size="7" color="#111111">Reserve A Table</font>
-        <br>
-        <font face="Poppins" size="2" color="#888888"><i>Please complete the details below to secure your dining experience</i></font>
     </h1>
     
-    <br><br>
+    <br>
 
-    <table border="0" cellpadding="40" cellspacing="0" bgcolor="#F9F9F9" width="550" style="border: 1px solid #E0E0E0;">
+    <table border="0" cellpadding="40" cellspacing="0" bgcolor="#F9F9F9" width="550" style="border: 1px solid #E0E0E0; max-width:100%;">
         <tr>
             <td>
                 <form id="reservationForm">
                     
-                    <p><font face="Poppins" size="2" color="#444444"><strong>Full Name</strong></font></p>
-                    <input type="text" id="customer_name" placeholder="e.g. John Doe" required style="width:100%; padding:10px; font-family:'Poppins',sans-serif; border:1px solid #CCCCCC; box-sizing:border-box;">
+                    <input type="text" id="customer_name" placeholder="Full Name" required style="width:100%; padding:10px; font-family:'Poppins',sans-serif; border:1px solid #CCCCCC; box-sizing:border-box;">
                     
                     <br><br>
                     
-                    <p><font face="Poppins" size="2" color="#444444"><strong>Phone Number</strong></font></p>
-                    <input type="tel" id="phone" placeholder="e.g. +254 700 000000" required style="width:100%; padding:10px; font-family:'Poppins',sans-serif; border:1px solid #CCCCCC; box-sizing:border-box;">
+                    <input type="tel" id="phone" placeholder="Phone Number" required style="width:100%; padding:10px; font-family:'Poppins',sans-serif; border:1px solid #CCCCCC; box-sizing:border-box;">
                     
                     <br><br>
                     
-                    <table border="0" width="100%" cellpadding="0" cellspacing="0">
-                        <tr>
-                            <td width="48%">
-                                <p><font face="Poppins" size="2" color="#444444"><strong>Date</strong></font></p>
-                                <input type="date" id="reservation_date" required style="width:100%; padding:10px; font-family:'Poppins',sans-serif; border:1px solid #CCCCCC; box-sizing:border-box;">
-                            </td>
-                            <td width="4%"></td>
-                            <td width="48%">
-                                <p><font face="Poppins" size="2" color="#444444"><strong>Time</strong></font></p>
-                                <input type="time" id="reservation_time" required style="width:100%; padding:10px; font-family:'Poppins',sans-serif; border:1px solid #CCCCCC; box-sizing:border-box;">
-                            </td>
-                        </tr>
-                    </table>
+                    <input type="date" id="reservation_date" required style="width:100%; padding:10px; font-family:'Poppins',sans-serif; border:1px solid #CCCCCC; box-sizing:border-box;">
                     
                     <br><br>
                     
-                    <p><font face="Poppins" size="2" color="#444444"><strong>Number of Guests</strong></font></p>
-                    <input type="number" id="guests" placeholder="1" min="1" required style="width:100%; padding:10px; font-family:'Poppins',sans-serif; border:1px solid #CCCCCC; box-sizing:border-box;">
+                    <input type="time" id="reservation_time" required style="width:100%; padding:10px; font-family:'Poppins',sans-serif; border:1px solid #CCCCCC; box-sizing:border-box;">
+                    
+                    <br><br>
+                    
+                    <input type="number" id="guests" placeholder="Number of Guests" required style="width:100%; padding:10px; font-family:'Poppins',sans-serif; border:1px solid #CCCCCC; box-sizing:border-box;">
                     
                     <br><br><br>
                     
                     <center>
                         <button type="submit" style="background-color:#111111; color:#FFFFFF; border:none; padding:12px 35px; font-family:'Poppins',sans-serif; font-size:12px; letter-spacing:2px; cursor:pointer; width:100%;">
-                            <strong>CONFIRM RESERVATION</strong>
+                            <strong>Reserve Table</strong>
                         </button>
                     </center>
 
@@ -88,29 +57,10 @@
     </table>
 
     <br><br>
-    <table border="0" width="550">
-        <tr>
-            <td align="center">
-                <p id="message"><font face="Poppins" size="3" color="#111111"></font></p>
-            </td>
-        </tr>
-    </table>
+    <p id="message"></p>
 
 </center>
 </section>
-
-<br><br>
-<hr size="1" color="#E0E0E0" width="85%">
-<br><br>
-
-<footer>
-<center>
-    <img src="assets/images/crave-logo.png" alt="Crave Logo" width="90">
-    <br><br>
-    <p><font face="Poppins" size="1" color="#999999">© 2026 Crave Kenya. All Rights Reserved.</font></p>
-    <br>
-</center>
-</footer>
 
 <script>
 const supabaseUrl = "https://hleopwmajetpaixqwidg.supabase.co";
@@ -141,10 +91,10 @@ document.getElementById("reservationForm").addEventListener("submit", async (e)=
     const message = document.getElementById("message");
 
     if(error){
-        message.innerHTML = `<font face="Poppins" size="3" color="#D32F2F"><strong>Error:</strong> ${error.message}</font>`;
+        message.innerText = error.message;
         console.error(error);
-    } else {
-        message.innerHTML = `<font face="Poppins" size="3" color="#2E7D32">✨ <strong>Reservation submitted successfully!</strong></font>`;
+    }else{
+        message.innerText = "Reservation submitted successfully!";
         document.getElementById("reservationForm").reset();
     }
 });
