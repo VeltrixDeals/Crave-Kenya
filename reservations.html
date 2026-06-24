@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <title>Reservations</title>
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -12,34 +13,35 @@
 <h1 class="section-title">
 Reserve A Table
 </h1>
+<form id="reservationForm" class="feature-card" style="max-width:700px;margin:auto;">
 
-<form class="feature-card" style="max-width:700px;margin:auto;">
-
-<input type="text" placeholder="Name">
-
-<br><br>
-
-<input type="tel" placeholder="Phone">
+<input type="text" id="customer_name" placeholder="Full Name" required>
 
 <br><br>
 
-<input type="date">
+<input type="tel" id="phone" placeholder="Phone Number" required>
 
 <br><br>
 
-<input type="time">
+<input type="date" id="reservation_date" required>
 
 <br><br>
 
-<input type="number" placeholder="Guests">
+<input type="time" id="reservation_time" required>
 
 <br><br>
 
-<button class="btn btn-primary">
-Reserve
+<input type="number" id="guests" placeholder="Number of Guests" required>
+
+<br><br>
+
+<button type="submit" class="btn btn-primary">
+Reserve Table
 </button>
 
 </form>
+
+<p id="message"></p>
 
 </section>
 
