@@ -91,7 +91,7 @@ document.getElementById("reservationForm").addEventListener("submit", async (e)=
     const message = document.getElementById("message");
 
     if(error){
-        message.innerText = error.message;
+        message.innerText = "Error saving reservation";
         console.error(error);
     }else{
         message.innerText = "Reservation submitted successfully!";
