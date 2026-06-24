@@ -1,400 +1,491 @@
-/* =========================
-   GLOBAL
-========================= */
+/* ==========================================================================
+   GLOBAL UTILITIES & RESET
+   ========================================================================== */
 
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 html{
-scroll-behavior:smooth;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
 }
 
 body{
-font-family:'Poppins',sans-serif;
-background:#0f0f0f;
-color:#ffffff;
-line-height:1.7;
-overflow-x:hidden;
+    font-family: 'Poppins', sans-serif;
+    background: #09090b; /* Deepened rich obsidian background */
+    color: #f4f4f5; /* Muted ultra-white text */
+    line-height: 1.8;
+    overflow-x: hidden;
+    letter-spacing: 0.3px;
 }
 
-/* =========================
-   NAVBAR
-========================= */
+/* ==========================================================================
+   NAVIGATION BAR
+   ========================================================================== */
 
 .navbar{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:15px 8%;
-background:rgba(0,0,0,.92);
-backdrop-filter:blur(10px);
-z-index:1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    background: rgba(9, 9, 11, 0.85); /* Matches background seamlessly */
+    backdrop-filter: blur(16px); /* Stronger glassmorphism effect */
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    z-index: 1000;
+    transition: all 0.4s ease;
 }
 
 .logo img{
-height:60px;
+    height: 55px;
+    width: auto;
+    object-fit: contain;
 }
 
 .nav-links{
-display:flex;
-list-style:none;
-gap:25px;
+    display: flex;
+    list-style: none;
+    gap: 35px; /* Extended breathing room */
 }
 
 .nav-links a{
-text-decoration:none;
-color:white;
-font-weight:500;
-transition:0.3s;
+    text-decoration: none;
+    color: #a1a1aa; /* Professional slate gray */
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase; /* Clean editorial style */
+    transition: color 0.3s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .nav-links a:hover{
-color:#d4af37;
+    color: #d4af37; /* Trademark Gold Accent */
 }
 
 .whatsapp-btn{
-background:#25D366;
-color:white;
-text-decoration:none;
-padding:12px 20px;
-border-radius:30px;
-font-weight:600;
-transition:.3s;
+    background: #25D366;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 12px 26px;
+    border-radius: 4px; /* Refined geometric shape replacing pill bubble */
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 14px rgba(37, 211, 102, 0.2);
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .whatsapp-btn:hover{
-transform:translateY(-3px);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
 }
 
-/* =========================
-   HERO
-========================= */
+/* ==========================================================================
+   HERO DISPLAY CONTAINER
+   ========================================================================== */
 
 .hero{
-height:100vh;
-background:
-linear-gradient(rgba(0,0,0,.65),
-rgba(0,0,0,.65)),
-url("https://i.imgur.com/BePidpZ.jpeg");
-background-size:cover;
-background-position:center;
-display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding:20px;
+    height: 100vh;
+    background: 
+        linear-gradient(rgba(9, 9, 11, 0.75), rgba(9, 9, 11, 0.85)),
+        url("https://i.imgur.com/LW2lJbc.jpeg"); /* Updated with your luxury dining background asset */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
 }
 
 .hero-content{
-max-width:800px;
+    max-width: 850px;
 }
 
 .hero h1{
-font-family:'Playfair Display',serif;
-font-size:4rem;
-margin-bottom:20px;
+    font-family: 'Playfair Display', serif;
+    font-size: 4.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 25px;
+    letter-spacing: -0.5px;
 }
 
 .hero h1 span{
-display:block;
-color:#d4af37;
+    display: block;
+    color: #d4af37;
+    font-weight: 500;
+    font-style: italic; /* High-end luxury framing */
+    margin-top: 5px;
 }
 
 .hero p{
-font-size:1.1rem;
-margin-bottom:30px;
+    font-size: 1.15rem;
+    color: #e4e4e7;
+    max-width: 650px;
+    margin: 0 auto 40px;
+    font-weight: 300;
 }
 
-/* =========================
-   BUTTONS
-========================= */
+/* ==========================================================================
+   INTERACTIVE BUTTONS
+   ========================================================================== */
 
 .hero-buttons{
-display:flex;
-justify-content:center;
-gap:15px;
-flex-wrap:wrap;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
 .btn{
-display:inline-block;
-padding:14px 28px;
-border-radius:50px;
-text-decoration:none;
-font-weight:600;
-transition:.3s;
+    display: inline-block;
+    padding: 14px 32px;
+    border-radius: 4px; /* Structural flat framing */
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .btn-primary{
-background:#d4af37;
-color:black;
+    background: #d4af37;
+    color: #09090b;
 }
 
 .btn-primary:hover{
-transform:translateY(-5px);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(212, 175, 55, 0.25);
 }
 
 .btn-secondary{
-border:2px solid #d4af37;
-color:#d4af37;
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    color: #d4af37;
+    background: transparent;
 }
 
 .btn-secondary:hover{
-background:#d4af37;
-color:black;
+    background: rgba(212, 175, 55, 0.08);
+    border-color: #d4af37;
+    transform: translateY(-3px);
 }
 
-/* =========================
-   SECTIONS
-========================= */
+/* ==========================================================================
+   PAGE SECTIONS & LAYOUTS
+   ========================================================================== */
 
 section{
-padding:100px 8%;
+    padding: 120px 8%;
 }
 
 .section-title{
-font-family:'Playfair Display',serif;
-font-size:2.8rem;
-text-align:center;
-margin-bottom:40px;
-color:#d4af37;
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 60px;
+    color: #d4af37;
+    letter-spacing: 0.5px;
 }
 
-/* =========================
-   ABOUT
-========================= */
+/* ==========================================================================
+   BRAND STORY (ABOUT)
+   ========================================================================== */
 
 .about{
-text-align:center;
-max-width:1100px;
-margin:auto;
+    text-align: center;
+    max-width: 900px;
+    margin: auto;
 }
 
 .about-image{
-width:100%;
-max-width:900px;
-display:block;
-margin:0 auto 30px;
-border-radius:20px;
+    width: 100%;
+    max-width: 900px;
+    display: block;
+    margin: 0 auto 40px;
+    border-radius: 8px; /* Clean architectural edging */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
 }
 
-/* =========================
-   FEATURES
-========================= */
+/* ==========================================================================
+   FEATURES / PROPOSITIONS GRID
+   ========================================================================== */
 
 .features-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
 }
 
 .feature-card{
-background:#171717;
-padding:30px;
-border-radius:20px;
-text-align:center;
-border:1px solid rgba(255,255,255,.08);
-transition:.3s;
+    background: #121214; /* Sleek structural card color */
+    padding: 45px 35px;
+    border-radius: 6px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .feature-card:hover{
-transform:translateY(-10px);
+    transform: translateY(-6px);
+    border-color: rgba(212, 175, 55, 0.3);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
 }
 
 .feature-card h3{
-color:#d4af37;
-margin-bottom:10px;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #d4af37;
+    margin-bottom: 15px;
 }
 
-/* =========================
-   MENU
-========================= */
+.feature-card p{
+    color: #a1a1aa;
+    font-size: 0.95rem;
+    font-weight: 300;
+}
+
+/* ==========================================================================
+   MENU LAYOUT GRID
+   ========================================================================== */
 
 .menu-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:25px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 35px;
 }
 
 .menu-card{
-background:#171717;
-border-radius:20px;
-overflow:hidden;
-border:1px solid rgba(255,255,255,.08);
-transition:.3s;
+    background: #121214;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .menu-card:hover{
-transform:translateY(-10px);
-border-color:#d4af37;
+    transform: translateY(-8px);
+    border-color: #d4af37;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
 .menu-card img{
-width:100%;
-height:220px;
-object-fit:cover;
-display:block;
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.menu-card:hover img{
+    transform: scale(1.03); /* Soft macro zoom effect on card activation */
 }
 
 .menu-card h3{
-padding:20px;
-text-align:center;
-color:#d4af37;
+    padding: 25px;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    text-align: center;
+    color: #f4f4f5;
+    letter-spacing: 0.5px;
+    border-top: 1px solid rgba(255, 255, 255, 0.02);
 }
 
-/* =========================
-   RESERVATION
-========================= */
+/* ==========================================================================
+   RESERVATION PARALLAX BANNER
+   ========================================================================== */
 
 .reservation-banner{
-text-align:center;
-background:
-linear-gradient(rgba(0,0,0,.75),
-rgba(0,0,0,.75)),
-url("https://i.imgur.com/XHctdjN.jpeg");
-background-size:cover;
-background-position:center;
+    text-align: center;
+    padding: 140px 8%;
+    background: 
+        linear-gradient(rgba(9, 9, 11, 0.8), rgba(9, 9, 11, 0.85)),
+        url("https://i.imgur.com/F7mVN1H.jpeg"); /* Updated with your atmosphere background asset */
+    background-size: cover;
+    background-position: center;
 }
 
 .reservation-banner h2{
-font-family:'Playfair Display',serif;
-font-size:3rem;
-margin-bottom:20px;
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #f4f4f5;
 }
 
 .reservation-banner p{
-margin-bottom:25px;
+    color: #d4af37;
+    font-size: 1.1rem;
+    font-style: italic;
+    margin-bottom: 35px;
+    font-weight: 400;
 }
 
-/* =========================
-   CONTACT
-========================= */
+/* ==========================================================================
+   CONTACT DETAILS PREVIEW
+   ========================================================================== */
 
 .contact-preview{
-text-align:center;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .contact-preview p{
-margin:10px 0;
-font-size:1.1rem;
+    margin: 15px 0;
+    font-size: 1.15rem;
+    color: #e4e4e7;
+    font-weight: 300;
 }
 
-/* =========================
-   FOOTER
-========================= */
+/* ==========================================================================
+   GLOBAL FOOTER
+   ========================================================================== */
 
 footer{
-background:black;
-text-align:center;
-padding:50px 20px;
+    background: #050507;
+    text-align: center;
+    padding: 60px 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.02);
 }
 
 .footer-logo{
-width:120px;
-margin-bottom:20px;
+    width: 110px;
+    margin-bottom: 25px;
+    opacity: 0.9;
 }
 
-/* =========================
-   WHATSAPP FLOAT
-========================= */
+footer p{
+    font-size: 0.85rem;
+    color: #71717a;
+    letter-spacing: 1px;
+}
+
+/* ==========================================================================
+   FLOATING ACTION UTILITY (WHATSAPP)
+   ========================================================================== */
 
 .floating-whatsapp{
-position:fixed;
-bottom:20px;
-right:20px;
-width:65px;
-height:65px;
-border-radius:50%;
-background:#25D366;
-display:flex;
-justify-content:center;
-align-items:center;
-font-size:30px;
-text-decoration:none;
-color:white;
-box-shadow:0 10px 25px rgba(0,0,0,.4);
-z-index:999;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #25D366;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    text-decoration: none;
+    color: #ffffff;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    z-index: 999;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* =========================
-   MENU GALLERY
-========================= */
+.floating-whatsapp:hover{
+    transform: scale(1.08) translateY(-4px);
+    box-shadow: 0 12px 28px rgba(37, 211, 102, 0.3);
+}
+
+/* ==========================================================================
+   MENU CARD INNER GALLERY COMPONENT
+   ========================================================================== */
 
 .menu-gallery{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:8px;
-padding:10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.01);
 }
 
 .menu-gallery img{
-width:100%;
-height:140px;
-object-fit:cover;
-border-radius:12px;
-display:block;
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 4px;
+    display: block;
 }
 
-/* =========================
-   MOBILE
-========================= */
+/* ==========================================================================
+   RESPONSIVE DESIGN BREAKPOINTS (MOBILE & TABLET VIEWPORTS)
+   ========================================================================== */
 
-@media(max-width:900px){
-
-.navbar{
-flex-direction:column;
-gap:15px;
-padding:20px;
+@media (max-width: 900px) {
+    .navbar{
+        flex-direction: column;
+        gap: 20px;
+        padding: 25px 4%;
+    }
+    
+    .nav-links{
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+    
+    section{
+        padding: 80px 6%;
+    }
+    
+    .hero h1{
+        font-size: 3rem;
+    }
+    
+    .section-title{
+        font-size: 2.4rem;
+        margin-bottom: 45px;
+    }
+    
+    .reservation-banner h2{
+        font-size: 2.4rem;
+    }
 }
 
-.nav-links{
-flex-wrap:wrap;
-justify-content:center;
-}
-
-.hero h1{
-font-size:2.8rem;
-}
-
-.section-title{
-font-size:2.2rem;
-}
-
-.reservation-banner h2{
-font-size:2.2rem;
-}
-
-}
-
-@media(max-width:600px){
-
-.hero h1{
-font-size:2.1rem;
-}
-
-.hero-buttons{
-flex-direction:column;
-align-items:center;
-}
-
-.btn{
-width:220px;
-text-align:center;
-}
-
-.logo img{
-height:50px;
-}
-
-.menu-gallery img{
-height:110px;
-}
-
+@media (max-width: 600px) {
+    .hero h1{
+        font-size: 2.3rem;
+    }
+    
+    .hero-buttons{
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+    
+    .btn{
+        width: 100%;
+        max-width: 280px;
+        text-align: center;
+    }
+    
+    .logo img{
+        height: 48px;
+    }
+    
+    .menu-gallery img{
+        height: 115px;
+    }
+    
+    .floating-whatsapp{
+        bottom: 20px;
+        right: 20px;
+        width: 54px;
+        height: 54px;
+        font-size: 24px;
+    }
 }
